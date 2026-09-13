@@ -10,10 +10,18 @@
   </style>
 </head>
 <body>
-  <iframe
+  <iframe id="app"
     src="https://script.google.com/macros/s/AKfycbyIEm0Yr5JZnFKcIy5Xu7fqpjqxDuoCKV75FCGDSzPhbrD83pY4Sg2uJecI-rPNFxQidg/exec"
     allow="camera; microphone"
     allowfullscreen>
   </iframe>
+  <script>
+    window.addEventListener('message', function(e) {
+      if (!e.data || e.data.tipo !== 'asistencia-nav') return;
+      if (typeof e.data.url !== 'string') return;
+      if (e.data.url.indexOf('/exec') === -1) return;
+      document.getElementById('app').src = e.data.url;
+    });
+  </script>
 </body>
 </html>
