@@ -19,7 +19,7 @@
     window.addEventListener('message', function(e) {
       if (!e.data || e.data.tipo !== 'asistencia-nav') return;
       if (typeof e.data.url !== 'string') return;
-      if (e.data.url.indexOf('/exec') === -1) return;
+      if (e.data.url.indexOf('script.google.com') === -1) return;
       document.getElementById('app').src = e.data.url;
     });
   </script>
